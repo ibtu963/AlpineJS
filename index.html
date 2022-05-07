@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpine 101</title>
+    <link rel="stylesheet" href="./css/tailwind.css" />
+    <link rel="stylesheet" href="./css/boxicons-2.1.2/css/boxicons.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <script defer src="./js/alpine.js"></script>
+  </head>
+  <body>
+    <div x-data="{ nombre :''}" class="container p-6">
+      <h1 class="text-blue-600 text -3x1 font-semibold mg-4"> Hola Alpine</h1>
+      <div class="input-wrapper">
+        <label for="nombre">Escribe tu nombre</label>
+        <input 
+          type="text" 
+          name="nombre" 
+          id="nombre"
+          placeholder="nombre..."
+          class="border border-blue-600 focus:outline-none focus:border-sky-500 focus:ring-1
+          focus:ring-sky-500"
+          x-model="nombre">
+      </div>
+      <p>Hola <span x-text="nombre"></span>, bienvenid@ a Alpine JS</p>
+    </div>
+    
+    <div x-data="{ open: false }" class="container p-6 ">
+      <button x-on:click="open = ! open">Menu despegable</button>
+   
+      <div x-show="open" x-transition:enter.duration.500ms>
+        <button x-on:click="alert('Hello World!')">Say Hi</button>
+      </div>
+  </div>
+ 
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
